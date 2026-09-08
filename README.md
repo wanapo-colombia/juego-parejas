@@ -13,7 +13,7 @@ Juego de memoria (encontrar parejas) desarrollado en **HTML, CSS y JavaScript pu
 ## 🛠️ Estructura del Proyecto
 
 ```text
-colombianas-de-hierro-memoria/
+memoria/
 ├── index.html            # Marcado principal con el contenedor (#stage > #app)
 ├── css/
 │   └── styles.css        # Estilos visuales, tablero y animaciones
