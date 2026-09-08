@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Colombianas de Hierro — Juego de Parejas</title>
+<meta name="description" content="Juego de memoria: encuentra las parejas y descubre tu nivel de concentración.">
+
+<!-- Tipografía: fuente redondeada tipo la del logo. Los textos y
+     botones principales ya vienen como piezas gráficas de marca
+     (assets/img), esta fuente solo cubre los textos que quedan
+     como HTML (pregunta inicial, HUD y "volver a jugar"). -->
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="stage">
+<div id="app">
+
+  <!-- ============================================================ -->
+  <!-- PANTALLA 1: SPLASH / CARGA                                    -->
+  <!-- ============================================================ -->
+  <section class="screen is-active" id="screen-splash" data-screen="splash">
+    <div class="splash-top-shape" aria-hidden="true">
+      <img src="assets/img/splash/splash-sphere.png" alt="">
+    </div>
+
+    <div class="splash-center">
+      <div class="badge badge--logo">
+        <img src="assets/img/logos/Logo-colombia.webp" alt="Colombianas de Hierro">
+      </div>
+      <div class="badge badge--pg">
+        <img src="assets/img/logos/logo-pg.webp" alt="P&amp;G">
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <img class="site-footer__img" src="assets/img/text/text-2.webp" alt="www.colombianasdehierro.com — @colombianasdehierro">
+    </footer>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PANTALLA 2: INICIO                                             -->
+  <!-- ============================================================ -->
+  <section class="screen" id="screen-start" data-screen="start">
+    <div class="start-content">
+      <p class="start-question">¿Listo para poner a prueba<br>tu concentración?</p>
+      <p class="start-instruction">Encuentra las parejas.</p>
+
+      <button type="button" class="img-btn img-btn--inicio" id="btn-inicio">
+        <img src="assets/img/buttons/btn-inicio.webp" alt="Inicio" loading="lazy">
+      </button>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PANTALLA 3: INTERSTICIAL "JUEGO DE PAREJAS"                    -->
+  <!-- ============================================================ -->
+  <section class="screen" id="screen-intro" data-screen="intro">
+    <div class="intro-content" id="intro-tap-area">
+      <img class="intro-content__img" src="assets/img/titles/title-parejas.webp" alt="Juego de parejas. ¿Cuántas puedes encontrar?" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PANTALLA 4/5: TABLERO DE JUEGO                                 -->
+  <!-- ============================================================ -->
+  <section class="screen" id="screen-game" data-screen="game">
+    <div class="game-hud">
+      <p class="game-hud__title">Encuentra las parejas</p>
+      <div class="game-hud__stats">
+        <span id="hud-intentos">Intentos: 0/6</span>
+        <span id="hud-aciertos">Aciertos: 0/6</span>
+      </div>
+    </div>
+
+    <div class="board" id="board" aria-label="Tablero de juego de memoria">
+      <!-- Las 12 cartas se generan dinámicamente desde js/game.js -->
+    </div>
+
+    <footer class="site-footer site-footer--game">
+      <img class="site-footer__img" src="assets/img/text/text-2.webp" alt="www.colombianasdehierro.com — @colombianasdehierro" loading="lazy">
+    </footer>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PANTALLA 6: RESULTADO GANADOR (más de 4 aciertos)              -->
+  <!-- ============================================================ -->
+  <section class="screen" id="screen-win" data-screen="win">
+    <div class="result-photo">
+      <img src="assets/img/woman/photo-mujer-feliz.webp" alt="Mujer celebrando" loading="lazy">
+    </div>
+
+    <div class="result-content">
+      <img class="result-title-img" src="assets/img/titles/title-result-success.webp" alt="Resultado, más de 4 aciertos. ¡Felicitaciones! Lo lograste." loading="lazy">
+
+      <img class="result-copy-img" src="assets/img/text/text-1.webp" alt="Tu buena concentración podría estar directamente relacionado a tus niveles de hierro. Consulta con tu médico." loading="lazy">
+
+      <button type="button" class="link-btn" id="btn-reintentar-win">Volver a jugar</button>
+    </div>
+
+    <footer class="site-footer">
+      <img class="site-footer__img" src="assets/img/text/text-2.webp" alt="www.colombianasdehierro.com — @colombianasdehierro" loading="lazy">
+    </footer>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PANTALLA 7: RESULTADO A MEJORAR (3 aciertos o menos)           -->
+  <!-- ============================================================ -->
+  <section class="screen" id="screen-lose" data-screen="lose">
+    <div class="result-photo">
+      <img src="assets/img/woman/photo-mujer-triste.webp" alt="Mujer cansada" loading="lazy">
+    </div>
+
+    <div class="result-content">
+      <img class="result-title-img" src="assets/img/titles/title-result-fail.webp" alt="Resultado, 3 aciertos o menos. Sigue intentando." loading="lazy">
+
+      <img class="result-copy-img" src="assets/img/text/text-3.webp" alt="La dificultad para concentrarte puede ser una señal de deficiencia de hierro. Consulta con tu médico." loading="lazy">
+
+      <button type="button" class="link-btn" id="btn-reintentar-lose">Volver a jugar</button>
+    </div>
+
+    <footer class="site-footer">
+      <img class="site-footer__img" src="assets/img/text/text-2.webp" alt="www.colombianasdehierro.com — @colombianasdehierro" loading="lazy">
+    </footer>
+  </section>
+
+  </div>
+  <!-- /#app -->
+</div>
+<!-- /#stage -->
+
+<script src="js/config.js"></script>
+<script src="js/fit.js"></script>
+<script src="js/screens.js"></script>
+<script src="js/game.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
